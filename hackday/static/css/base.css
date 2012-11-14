@@ -100,6 +100,9 @@ a{color:#000;}
 	zoom: 1;
 }
 
+#content strong {
+	font-weight: bold;
+}
 /*-------------------------------------------------------------------------
 = header
 --------------------------------------------------------------------------*/
@@ -215,6 +218,7 @@ footer nav {display:none;} /*hide footer nav in desktop view*/
 #content h3 {
 	font-size: 25px;
 	line-height: 35px;
+	font-weight: bold;
 }
 #content h3 a {
 	color: rgb(237, 24, 70);
