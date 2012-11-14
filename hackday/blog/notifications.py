@@ -77,7 +77,8 @@ class BlogNotification(object):
         api = tweepy.API(auth)
         try:
             api.update_status(update)
-        except tweepy.TweepError:
+        except tweepy.TweepError, e:
+            print e
             pass # avoid errors from duplicate posts during testing
 
 

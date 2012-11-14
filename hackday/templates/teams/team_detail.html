@@ -94,10 +94,6 @@
             </ul>
             <p class="asterix">*Team Captain</p>
         </div>
-    	<div id="side-charity" class="team-side-sec">
-            <h3>Charity</h3>
-            <p><a href="{% url charities-home %}">{{team.charity}}</a></p>
-        </div>
 	{% for member in team.members.all %}
 		{% if member == user %}
     	<div id="side-attach" class="team-side-sec">

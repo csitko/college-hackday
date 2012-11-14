@@ -7,7 +7,7 @@
     <h1>{{ entry.title }}</h1>
 
     {% if entry.categories.all %}
-    <p>Categories:
+    <p class="ent-categories">Categories:
         <ul>
         {% for category in entry.categories.all %}
             <li><a href="{% url blog-category category.slug %}">{{ category.slug }}</a></li>
@@ -17,7 +17,7 @@
     {% endif %}
 
     {% if entry.tags.all %}
-    <p>Tags:
+    <p class="ent-tags">Tags:
         <ul>
         {% for tag in entry.tags.all %}
             <li><a href="{% url blog-tag tag.slug %}">{{ tag.slug }}</a></li>
@@ -27,7 +27,7 @@
     {% endif %}
    <p class="ent-published">Published: {{ entry.pub_date|date:"F d, Y," }} at {{ entry.pub_date|date:"H:i" }}</p>
     <p class="ent-author">Author: <a href="{% url users-profile entry.author.username %}">{{entry.author.username}}</a></p>
-  
+
 
     <div class="rendered-content">
 	{% if entry.format == formats.MARKDOWN %}

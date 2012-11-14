@@ -7,3 +7,8 @@
 *.swo
 hackday/settings_local.py
 hackday.db
+bin
+lib
+include
+.Python
+media

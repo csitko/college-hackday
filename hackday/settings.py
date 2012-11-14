@@ -4,7 +4,7 @@ VENV_ROOT = os.environ.get('VIRTUAL_ENV', '')
 CODE_ROOT = os.path.split(__file__)[0]
 
 DEBUG = True
-DEBUG_TOOLBAR = DEBUG
+DEBUG_TOOLBAR = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -143,7 +143,6 @@ INSTALLED_APPS = (
     'taggit',
     'hackday.assets',
     'hackday.blog',
-    'hackday.charities',
     'hackday.teams',
     'hackday.users',
     'hackday.voting',

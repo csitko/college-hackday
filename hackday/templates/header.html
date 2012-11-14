@@ -1,7 +1,8 @@
+{% load static %}
 <header>
-
+	<a href="{% url blog-home %}"><img src="{% static 'images/mission.jpg'%}" class="logo"></a>
     <a href="{% url blog-home %}" id="head-logo">
-        <h1>Hack Day</h1>
+        <h1>AG Hack Day</h1>
         <p>A Clever Tag Line</p>
         <span class="x1"></span>
     </a>

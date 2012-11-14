@@ -6,7 +6,6 @@ from django import forms
 from django.template.defaultfilters import slugify
 
 from hackday.assets.models import Attachment, ImageAttachment, Link
-from hackday.charities.models import Charity
 from hackday.voting.moremodels import Category
 
 
@@ -22,22 +21,6 @@ class STATUS(object):
         (ACTIVE, 'Active'),
         (DISQUALIFIED, 'Disqualified'),
         (DELETED, 'Deleted'),
-    )
-
-
-class PROJECT_TYPE(object):
-    """
-    Type of project -- 'implemented' (working code) or 'concept' (smoke and
-    Powerpoint mirrors)
-    """
-    # I honestly came really close to calling these 'SMOKE' and 'MIRRORS' but
-    # couldn't decide which to assign to which. - mpirnat
-    IMPLEMENTED = 'I'
-    CONCEPT = 'C'
-
-    CHOICES = (
-        (IMPLEMENTED, 'Implemented'),
-        (CONCEPT, 'Concept'),
     )
 
 
@@ -76,13 +59,10 @@ class Team(models.Model):
         * a name--hopefully an awesome one
         * a slug, to be used for the URL of the team's page
         * a project description
-        * a project type, so that we can differentiate "real" hacks vs. thought
-          experiments (aka "code vs. ppt")
         * a creator
         * a captain
         * team members
         * a judged category
-        * a charity that the team is supporting
 
     The creator and captain may have management powers above and beyond
     those of a mere member.
@@ -97,8 +77,6 @@ class Team(models.Model):
     logo = models.ImageField('team logo image', blank=True,
             upload_to=create_unique_team_filename)
 
-    project_type = models.CharField('type of project', max_length=1,
-            db_index=True, choices=PROJECT_TYPE.CHOICES)
     status = models.CharField(max_length=1, db_index=True,
             choices=STATUS.CHOICES)
 
@@ -117,7 +95,6 @@ class Team(models.Model):
             related_name="%(app_label)s_%(class)s_links")
 
     category = models.ForeignKey(Category)
-    charity = models.ForeignKey(Charity)
 
     create_date = models.DateTimeField('date created', auto_now_add=True)
     mod_date = models.DateTimeField('date modified', auto_now=True)
